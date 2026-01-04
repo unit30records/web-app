@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base Colors converted to valid CSS HSL strings */
+  --background: hsl(0 0% 3.9%);
+  --foreground: hsl(0 0% 98%);
+  
+  --card: hsl(0 0% 8%);
+  --card-foreground: hsl(0 0% 98%);
+  
+  --popover: hsl(0 0% 8%);
+  --popover-foreground: hsl(0 0% 98%);
+  
+  --primary: hsl(0 0% 98%);
+  --primary-foreground: hsl(0 0% 3.9%);
+  
+  --secondary: hsl(270 60% 50%);
+  --secondary-foreground: hsl(0 0% 98%);
+  
+  --muted: hsl(0 0% 25%);
+  --muted-foreground: hsl(0 0% 70%);
+  
+  --accent: oklch(60.6% 0.25 292.717);
+  --accent-foreground: hsl(0 0% 98%);
+  
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(0 0% 98%);
+  
+  --border: hsl(0 0% 15%);
+  --input: hsl(0 0% 12%);
+  --ring: hsl(270 70% 55%);
+  
+  /* Chart Colors */
+  --chart-1: hsl(270 70% 50%);
+  --chart-2: hsl(250 70% 50%);
+  --chart-3: hsl(290 70% 50%);
+  --chart-4: hsl(180 60% 45%);
+  --chart-5: hsl(200 60% 50%);
+  
+  /* Radius */
+  --radius: 0.5rem;
+
 }
 
 @theme inline {
+  /* Mapping CSS variables to Tailwind Utilities */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-chart-1: var(--chart-1);
+  --color-color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Radius mapping */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base styles */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Border color reset for all elements */
+* {
+  border-color: var(--border);
+}
+
+/* GLOW */
+.hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)];
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* FOOTER */
+#copyright {
+  font-family: 'Inconsolata', monospace;
 }
